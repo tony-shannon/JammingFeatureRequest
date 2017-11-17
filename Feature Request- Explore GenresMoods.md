@@ -21,8 +21,10 @@ This feature involves a new aspect to Spotify API  that combines categories, pla
 # TECHNICAL DESIGN
 The approach taken here is to reuse and build on much of the functionality we have already built, ie Search Bar, Search Results, TrackLists, Tracks and Playlists.
 We will step through the changes needed to Jammer to explain the approach to this feature development.
-Start Up
+## Start Up
 The Jammer application will start as normal
+![Image1](Slide1.JPG "Startup")
+
 
 ## SearchBar
 In the searchbar, we add a new feature, where we allow users to search for a genre, we can do this via either a syntax search trigger for now eg Search for “Mood:Dinner” or perhaps a radio button beside the SearchBar to signify a Mood/Genre search. 
