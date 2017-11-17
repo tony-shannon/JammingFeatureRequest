@@ -45,6 +45,8 @@ In our case, the category id is taken from the “Mood:Dinner” and ends up as 
 ![Image6](APIcalls.PNG "Search Category API")
 
 This Search By Category API provides a listing of available Playlists to the user, the result set includes the playlists of this format
+
+
 `
 {
       "collaborative" : false,
@@ -84,11 +86,15 @@ To accommodate the playlist we will add a third column to the frontend, called P
 App.js will need to be amended to;
 	
 Access the Search(Category) method in Spotify.js to get the PlayListList object, something like this;
+
+
   `search(category) {
     Spotify.search(category).then(PlayListListResults => {
       this.setState({PlayListListResults: PlayListListResults});
     });
   }`
+  
+  
 Import a PlayListList Component
 	Render the new component PlayListList
 This will require 3 new files
