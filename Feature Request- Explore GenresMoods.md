@@ -92,9 +92,8 @@ Access the Search(Category) method in Spotify.js to get the PlayListList object,
 Import a PlayListList Component
 	Render the new component PlayListList
 This will require 3 new files
-1) PlayListListResults.js .. modelled on SearchResults.js
-
-	The key difference will be
+1) PlayListListResults.js .. modelled on SearchResults.js. The key difference will be
+	
 `class PlayListListResults extends React.Component {
   render() {
     return (
@@ -104,7 +103,7 @@ This will require 3 new files
       </div>
     );
   }
-}`
+} `
 
 
 2) PlaylistList.js   .. modelled on the TrackList.js .. the key will be playlist.id, playlist.name and playlist.uri
