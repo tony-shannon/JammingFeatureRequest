@@ -29,7 +29,7 @@ The Jammer application will start as normal
 ## SearchBar
 In the searchbar, we add a new feature, where we allow users to search for a genre, we can do this via either a syntax search trigger for now eg Search for “Mood:Dinner” or perhaps a radio button beside the SearchBar to signify a Mood/Genre search. 
 For the sake of simplicity and a clean UI, we will further develop the search functionality to process this search.  We will prefill the search bar to explain how to search by Mood/Genre.
-
+![Image2](Slide2.JPG "Playlist")
 
 We will need to check the search string for “Mood” (with a regex search) and if so it will need to change the search to a lowercase (eg Dinner to dinner) then trigger a Spotify search based on the Search by Category API
 SearchBar.js search() will take the search (term) and pass it to App.js
@@ -128,6 +128,7 @@ The Spotify.js getPlayListTracks method will be based on the search(term) method
 
 The App.js file will take the resulting playlist tracks , set them to state and render them via the TrackList and Track components 
 
+![Image3](Slide3.JPG "TrackLists")
 
 
 That then returns a tracklist with a list of tracks of this format
@@ -135,6 +136,8 @@ https://gist.github.com/tony-shannon/35c3fd8849fbb31035f78eb77016c185
 
 ## Explore TrackLists
 We reuse the Tracklist and Track functionality already developed to provide a list of related tracks to  the user as already available
+
+![Image4](Slide4.JPG "TrackList to PlayList")
 
 i.e. again we list the tracks from that playlist with the following data in the tracks:
 track.id, track.name, track.artists[0].name, track.album.name, track.uri
@@ -144,7 +147,7 @@ The user can then choose to add a track to a new playlist of their own, as in ou
 
 They can then save a new playlist to their own account, again as previously available in the application
 
-
+![Image5](Slide4.JPG "Save User PlayList")
 
 
 
