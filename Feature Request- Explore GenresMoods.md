@@ -147,7 +147,7 @@ The user can then choose to add a track to a new playlist of their own, as in ou
 
 They can then save a new playlist to their own account, again as previously available in the application
 
-![Image5](Slide4.JPG "Save User PlayList")
+![Image5](Slide5.JPG "Save User PlayList")
 
 
 
