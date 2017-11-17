@@ -42,7 +42,7 @@ https://api.spotify.com/v1/browse/categories/{category_id}/playlists
 This Search By Category API will provide a listing of available Playlists to the user, the result set includes the playlists of this format
 In our case, the category id is taken from the “Mood:Dinner” and ends up as “dinner”
 
-
+![Image6](APIcalls.PNG "Search Category API")
 
 This Search By Category API provides a listing of available Playlists to the user, the result set includes the playlists of this format
 `
@@ -120,6 +120,8 @@ We then take the Playlist id field (   "id" : "37i9dQZF1DX4xuWVBs4FgJ" )here and
 https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}
 The owner/user_id here is spotify
 The playlist_id here is 37i9dQZF1DX4xuWVBs4FgJ
+
+![Image7](APIcalls2.PNG "Get Playlist API")
 
 App.js and Spotify.js will need new methods to process the getPlaylist methods
 
