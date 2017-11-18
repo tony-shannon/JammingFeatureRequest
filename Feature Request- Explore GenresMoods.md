@@ -40,18 +40,18 @@ App.js search(term) will take that search (term), & need amendment to cater for 
 
 Spotify.js search(term) takes the search term from App.js as normal
 
-Spotify.js will need a new method.. search(category) that will leverage/learn from the search(term) and pass several details esp the authentication token and the category and will then handle the jsonResponse including the Playlist id, name and uri
+Spotify.js will need a new method.. search(category) that will leverage/learn from the search(term) and pass several details to the Spotify Search By Category API, esp the authentication token  and the category and will then handle the jsonResponse that comes back including the Playlist id, name and uri
 
 ## Search By Category API: See here for explanation of this method:
 https://api.spotify.com/v1/browse/categories/{category_id}/playlists
 
-This Search By Category API will provide a listing of available Playlists to the user, the result set includes the playlists of this format
+This Spotify Search By Category API takes the category and provides a response..
 
-In our case, the category id is taken from the “Mood:Dinner” and ends up as “dinner”
+In our case, the category id is taken from the “Mood:Dinner” and ends up as “dinner” and passed to this API.
 
 ![Image6](APIcalls.PNG "Search Category API")
 
-This Search By Category API provides a listing of available Playlists to the user, the result set includes the playlists of this format
+This Spotify Search By Category API then provides a listing of available Playlists to the user, the result set includes the playlists of this format;
 
 
 `
@@ -89,11 +89,11 @@ This Search By Category API provides a listing of available Playlists to the use
     }, 
     `
     
-To accommodate the playlist we will add a third column to the frontend, called Playlists
+To accommodate the playlist we will add a third column to the UI frontend, (which will involve HTML, CSS amends), the third column will be called Spotify: Playlists:
 
-App.js will need to be amended to;
+App.js will need to be amended to accomodate this including;
 	
-Access the Search(Category) method in Spotify.js to get the PlayListList object, something like this;
+a) Access to the Spotify.search(category) method within Spotify.js, to get the PlayListList object, something like this;
 
 
   `search(category) {
@@ -103,7 +103,7 @@ Access the Search(Category) method in Spotify.js to get the PlayListList object,
   }`
   
   
-Import a PlayListList Component
+b) Import a PlayListList Component
 	Render the new component PlayListList
 	
 This new feature will require 3 new files
@@ -124,7 +124,7 @@ This new feature will require 3 new files
 2) PlaylistList.js   .. modelled on the TrackList.js .. the key will be playlist.id, playlist.name and playlist.uri
 3) PlaylistList.css   .. modelled on TrackList.css
 
-From the PlayListList (in this case “mood:dinner”) we then select a playlist (eg “Dinner for Two”) to explore further;
+From the PlayListList (in this case triggered by “mood:dinner”) we then select a playlist (eg “Dinner for Two”) so the user can explore this further;
 
 
 
@@ -133,12 +133,16 @@ We then take the Playlist id field (   "id" : "37i9dQZF1DX4xuWVBs4FgJ" )here and
 
 ## Spotify Get a Playlist API  
 https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id}
+
+In this example.. 
+
 The owner/user_id here is spotify
+
 The playlist_id here is 37i9dQZF1DX4xuWVBs4FgJ
 
 ![Image7](APIcalls2.PNG "Get Playlist API")
 
-App.js and Spotify.js will need new methods to process the getPlaylist methods
+Spotify.js and App.js will need new methods to process the getPlaylist methods
 
 
 The Spotify.js getPlayListTracks method will be based on the search(term) method, it will take the “spotify” as userid and the selected playlistID as a parameter and call on the https://api.spotify.com/v1/users/{user_id}/playlists/{playlist_id} API
