@@ -32,14 +32,21 @@ For the sake of simplicity and a clean UI, we will further develop the search fu
 ![Image2](Slide2.JPG "Playlist")
 
 We will need to check the search string for “Mood” (with a regex search) and if so it will need to change the search to a lowercase (eg Dinner to dinner) then trigger a Spotify search based on the Search by Category API
+
 SearchBar.js search() will take the search (term) and pass it to App.js
+
+
 App.js search(term) will take that search (term), & need amendment to cater for “Mood:”  and add an if statement that will route the to Spotify search by category API if Mood: is included and pass it to search(category)
+
 Spotify.js search(term) takes the search term from App.js as normal
+
 Spotify.js will need a new method.. search(category) that will leverage/learn from the search(term) and pass several details esp the authentication token and the category and will then handle the jsonResponse including the Playlist id, name and uri
 
 ## Search By Category API: See here for explanation of this method:
 https://api.spotify.com/v1/browse/categories/{category_id}/playlists
+
 This Search By Category API will provide a listing of available Playlists to the user, the result set includes the playlists of this format
+
 In our case, the category id is taken from the “Mood:Dinner” and ends up as “dinner”
 
 ![Image6](APIcalls.PNG "Search Category API")
@@ -83,6 +90,7 @@ This Search By Category API provides a listing of available Playlists to the use
     `
     
 To accommodate the playlist we will add a third column to the frontend, called Playlists
+
 App.js will need to be amended to;
 	
 Access the Search(Category) method in Spotify.js to get the PlayListList object, something like this;
@@ -114,6 +122,7 @@ This will require 3 new files
 
 2) PlaylistList.js   .. modelled on the TrackList.js .. the key will be playlist.id, playlist.name and playlist.uri
 3) PlaylistList.css   .. modelled on TrackList.css
+
 From the PlayListList (in this case “mood:dinner”) we then select a playlist (eg “Dinner for Two”) to explore further;
 
 
@@ -139,6 +148,7 @@ The App.js file will take the resulting playlist tracks , set them to state and 
 
 
 That then returns a tracklist with a list of tracks of this format
+
 https://gist.github.com/tony-shannon/35c3fd8849fbb31035f78eb77016c185
 
 ## Explore TrackLists
@@ -159,15 +169,16 @@ They can then save a new playlist to their own account, again as previously avai
 
 
 # CAVEATS
-This section is used to lay out alternative solutions and their respective drawbacks, as well as potential drawbacks to the proposed solution above. This is used to make it clear why the technical implementation detailed previously was chosen instead of alternatives. It additionally allows stakeholders or other developers to consider those drawbacks and choose one of the alternate solutions if they prefer it. This may occur if they feel the benefits or drawbacks of that solution are more desirable than the current solution, or if they can identify other benefits and drawbacks not currently listed.
+
 The feature outlined here progresses and improves the functionality of the Jamming application, while keeping the changes to a reasonable scope, so the work involved is a step wise improvement.
 
 
 The changes are at both the UI level as well as needing to call 2 new APIs
+
 The search style involving “Mood:Dinner” as search syntax is not the most user friendly, but has the advantage of being simple enough to support, with a check/parse on the search term. It keeps the UI fairly clean without added buttons etc.
+
 The UI change involved with the new component is PlayListList may be done in other ways, though in the authors view having PlayLists and TrackLists sitting side by side is pretty clean and useful/reusable pattern.
 
 The user flow runs from Search to Exploring PlayListLists to Exploring TrackLists, then reusing Tracklists to create(+/- amending) Playlists.. 
 
-
-Sitting PlayLists alongside PlayListLists could be confusing, but that is mitigated by making the PlayListList Readonly (non editable) while allowing the PlayLists to be Read/Write (ie editable)
+Sitting PlayLists alongside PlayListLists could be confusing, but that is mitigated by making the Spotify PlayListList Readonly (non editable) while allowing the User PlayLists to be Read/Write (ie editable), which we believe is a reasonable approach to take
