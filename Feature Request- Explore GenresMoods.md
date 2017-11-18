@@ -105,7 +105,8 @@ Access the Search(Category) method in Spotify.js to get the PlayListList object,
   
 Import a PlayListList Component
 	Render the new component PlayListList
-This will require 3 new files
+	
+This new feature will require 3 new files
 1) PlayListListResults.js .. modelled on SearchResults.js. The key difference will be
 	
 `class PlayListListResults extends React.Component {
